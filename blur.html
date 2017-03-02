@@ -13,6 +13,11 @@
             console.log('blur');
             document.title = "This is the new page title.";    
         });
+         $(window).focus(function() {
+            console.log('Focus');
+            document.title = "Blur test";    
+        });
+
     </script>
 </body>
 </html>
