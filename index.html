@@ -1,32 +1,366 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по сербскому языку</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+        .word {
+            color: #17a2b8;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .options, .hint {
+            display: none;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .full-analysis {
+            display: none;
+            font-size: 1.2rem;
+        }
+        .btn-lg {
+            margin: 0.5rem;
+        }
+        .modal-content {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+        .footer {
+            border-top: 1px solid #f8f9fa;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .counters {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        let correctAnswers = parseInt(localStorage.getItem('correctAnswers')) || 0;
+        let incorrectAnswers = parseInt(localStorage.getItem('incorrectAnswers')) || 0;
 
+        function updateCounters() {
+            localStorage.setItem('correctAnswers', correctAnswers);
+            localStorage.setItem('incorrectAnswers', incorrectAnswers);
+
+            document.getElementById('correct-counter').textContent = correctAnswers;
+            document.getElementById('incorrect-counter').textContent = incorrectAnswers;
+            const total = correctAnswers + incorrectAnswers;
+            const winRate = total === 0 ? 0 : (correctAnswers / total * 100).toFixed(2);
+            document.getElementById('win-rate').textContent = winRate + '%';
+        }
+
+        async function loadJSON() {
+            const response = await fetch('examples.json');
+            const data = await response.json();
+            return data;
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function showOptions(id) {
+            document.querySelectorAll('.options').forEach(el => el.style.display = 'none');
+            document.querySelector(`#options-${id}`).style.display = 'block';
+        }
+
+        function checkAnswer(id, selectedOption, correctOption) {
+            const result = document.querySelector(`#result-${id}`);
+            const wordElement = document.querySelector(`#word-${id}`);
+            wordElement.textContent = selectedOption;
+            if (selectedOption === correctOption) {
+                correctAnswers++;
+                result.textContent = 'Правильно';
+                result.className = 'correct';
+                wordElement.className = 'word correct';
+            } else {
+                incorrectAnswers++;
+                result.textContent = 'Неправильно';
+                result.className = 'incorrect';
+                wordElement.className = 'word incorrect';
+            }
+            updateCounters();
+        }
+
+        function showHint(id) {
+            document.querySelector(`#hint-${id}`).style.display = 'block';
+        }
+
+        function showFullAnalysis() {
+            document.querySelector('.full-analysis').style.display = 'block';
+        }
+
+        function generateOptions(id, options, correctOption, hint) {
+            shuffle(options);
+            const container = document.querySelector(`#options-${id}`);
+            container.innerHTML = '';
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'btn btn-primary btn-lg';
+                button.textContent = option;
+                button.onclick = () => checkAnswer(id, option, correctOption);
+                container.appendChild(button);
+            });
+            const result = document.createElement('p');
+            result.id = `result-${id}`;
+            container.appendChild(result);
+            const hintButton = document.createElement('button');
+            hintButton.className = 'btn btn-info btn-lg';
+            hintButton.textContent = 'Подсказка';
+            hintButton.onclick = () => showHint(id);
+            container.appendChild(hintButton);
+            const hintElement = document.createElement('p');
+            hintElement.id = `hint-${id}`;
+            hintElement.className = 'hint';
+            hintElement.textContent = hint;
+            container.appendChild(hintElement);
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await loadJSON();
+            const example = data.examples[Math.floor(Math.random() * data.examples.length)];
+            const textContainer = document.querySelector('#test-text');
+            let textHTML = example.test;
+            example.options.forEach((option, index) => {
+                const id = index + 1;
+                const span = `<span id="word-${id}" class="word" onclick="showOptions('${id}')">(${option.word})</span>`;
+                textHTML = textHTML.replace(`(${option.word})`, span);
+                const allOptions = [option.correct_option, ...option.wrong_options];
+                generateOptions(id, allOptions, option.correct_option, option.correct_option_help);
+            });
+            textContainer.innerHTML = textHTML;
+
+            const analysisContainer = document.querySelector('.full-analysis');
+            example.options.forEach(option => {
+                const p = document.createElement('p');
+                p.textContent = `${option.correct_option} - ${option.correct_option_help}`;
+                analysisContainer.appendChild(p);
+            });
+
+            updateCounters();
+        });
+    </script>
+</head>
 <body>
-    <h1>Stonks</h1>
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-        <div id="tradingview_9efd1"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BLACKBULL-SPX500/"
-                rel="noopener" target="_blank"><span class="blue-text">SPX500 Chart</span></a> by TradingView</div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-            new TradingView.widget(
-                {
-                    "autosize": true,
-                    "symbol": "BLACKBULL:SPX500",
-                    "interval": "D",
-                    "timezone": "Europe/Moscow",
-                    "theme": "dark",
-                    "style": "1",
-                    "locale": "en",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "container_id": "tradingview_9efd1"
-                }
-            );
-        </script>
-    </div>
-    <!-- TradingView Widget END -->
-</body>
+    <div class="container mt-5">
+        <div class="counters">
+            <span>Правильных ответов: <span id="correct-counter">0</span></span> |
+            <span>Неправильных ответов: <span id="incorrect-counter">0</span></span> |
+            <span>Win rate: <span id="win-rate">0%</span></span>
+        </div>
+        <p id="test-text" class="lead"></p>
 
+        <div id="options-1" class="options"></div>
+        <div id="options-2" class="options"></div>
+        <div id="options-3" class="options"></div>
+        <div id="options-4" class="options"></div>
+        <div id="options-5" class="options"></div>
+        <div id="options-6" class="options"></div>
+        <div id="options-7" class="options"></div>
+        <div id="options-8" class="options"></div>
+
+        <button class="btn btn-success btn-lg" onclick="showFullAnalysis()">Показать полный разбор примера</button>
+        <div class="full-analysis mt-4"></div>
+    </div>
+
+    <!-- Modal for Case Reference -->
+    <div class="modal fade" id="caseReferenceModal" tabindex="-1" aria-labelledby="caseReferenceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="caseReferenceModalLabel">Справка по падежам</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Мужской род</h5>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Падеж</th>
+                                <th>Единственное число</th>
+                                <th>Множественное число</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Номинатив</td>
+                                <td>леп дан</td>
+                                <td>лепи дани</td>
+                            </tr>
+                            <tr>
+                                <td>Генитив</td>
+                                <td>лепог дана</td>
+                                <td>лепих дана</td>
+                            </tr>
+                            <tr>
+                                <td>Датив</td>
+                                <td>лепом дану</td>
+                                <td>лепим данима</td>
+                            </tr>
+                            <tr>
+                                <td>Аккузатив</td>
+                                <td>леп дан</td>
+                                <td>лепе дане</td>
+                            </tr>
+                            <tr>
+                                <td>Вокатив</td>
+                                <td>лепе дане</td>
+                                <td>лепи дани</td>
+                            </tr>
+                            <tr>
+                                <td>Инструментал</td>
+                                <td>лепим даном</td>
+                                <td>лепим данима</td>
+                            </tr>
+                            <tr>
+                                <td>Локатив</td>
+                                <td>лепом дану</td>
+                                <td>лепим данима</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>Женский род</h5>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Падеж</th>
+                                <th>Единственное число</th>
+                                <th>Множественное число</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Номинатив</td>
+                                <td>хладна кафа</td>
+                                <td>хладне кафе</td>
+                            </tr>
+                            <tr>
+                                <td>Генитив</td>
+                                <td>хладне кафе</td>
+                                <td>хладних кафа</td>
+                            </tr>
+                            <tr>
+                                <td>Датив</td>
+                                <td>хладној кафи</td>
+                                <td>хладним кафама</td>
+                            </tr>
+                            <tr>
+                                <td>Аккузатив</td>
+                                <td>хладну кафу</td>
+                                <td>хладне кафе</td>
+                            </tr>
+                            <tr>
+                                <td>Вокатив</td>
+                                <td>хладна кафа</td>
+                                <td>хладне кафе</td>
+                            </tr>
+                            <tr>
+                                <td>Инструментал</td>
+                                <td>хладном кафом</td>
+                                <td>хладним кафама</td>
+                            </tr>
+                            <tr>
+                                <td>Локатив</td>
+                                <td>хладној кафи</td>
+                                <td>хладним кафама</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>Средний род</h5>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Падеж</th>
+                                <th>Единственное число</th>
+                                <th>Множественное число</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Номинатив</td>
+                                <td>лепо име</td>
+                                <td>лепа имена</td>
+                            </tr>
+                            <tr>
+                                <td>Генитив</td>
+                                <td>лепог имена</td>
+                                <td>лепих имена</td>
+                            </tr>
+                            <tr>
+                                <td>Датив</td>
+                                <td>лепом имену</td>
+                                <td>лепим именима</td>
+                            </tr>
+                            <tr>
+                                <td>Аккузатив</td>
+                                <td>лепо име</td>
+                                <td>лепа имена</td>
+                            </tr>
+                            <tr>
+                                <td>Вокатив</td>
+                                <td>лепо име</td>
+                                <td>лепа имена</td>
+                            </tr>
+                            <tr>
+                                <td>Инструментал</td>
+                                <td>лепим именом</td>
+                                <td>лепим именима</td>
+                            </tr>
+                            <tr>
+                                <td>Локатив</td>
+                                <td>лепом имену</td>
+                                <td>лепим именима</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#caseReferenceModal').modal({
+                show: false
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#caseReferenceModal">Справка по падежам</button>
+            <button class="btn btn-primary btn-lg" onclick="location.reload()">
+                Другой пример <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </footer>
+</body>
 </html>
