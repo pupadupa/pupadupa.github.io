@@ -51,6 +51,7 @@
     <script>
         let correctAnswers = parseInt(localStorage.getItem('correctAnswers')) || 0;
         let incorrectAnswers = parseInt(localStorage.getItem('incorrectAnswers')) || 0;
+        let currentTest = "";
 
         function updateCounters() {
             localStorage.setItem('correctAnswers', correctAnswers);
@@ -107,6 +108,11 @@
             document.querySelector('.full-analysis').style.display = 'block';
         }
 
+        function openInChatGPT() {
+            const url = `https://chat.openai.com/?q=Отвечай+очень+кратко.+Сначала+покажи+правильный+вариант.+Потом+покажи+перевод+правильного+варианта+на+русский.+Потом+для+неправильного+варианта+для+каждого+слова+в+скобках+объясни+правила:+${encodeURIComponent(currentTest)}`;
+            window.open(url, '_blank');
+        }
+
         function generateOptions(id, options, correctOption, hint) {
             shuffle(options);
             const container = document.querySelector(`#options-${id}`);
@@ -136,6 +142,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const data = await loadJSON();
             const example = data.examples[Math.floor(Math.random() * data.examples.length)];
+            currentTest = example.test;
             const textContainer = document.querySelector('#test-text');
             let textHTML = example.test;
             example.options.forEach((option, index) => {
@@ -153,9 +160,6 @@
                 p.textContent = `${option.correct_option} - ${option.correct_option_help}`;
                 analysisContainer.appendChild(p);
             });
-
-            const chatGPTLink = `https://chat.openai.com/?q=Отвечай+очень+кратко.+Сначала+покажи+перевод+на+русский.+Потом+покажи+правильный+вариант.+Потом+для+каждого+слова+в+скобках+объясни+правила:+${encodeURIComponent(example.test)}`;
-            document.getElementById('chatgpt-link').href = chatGPTLink;
 
             updateCounters();
         });
@@ -179,12 +183,10 @@
         <div id="options-7" class="options"></div>
         <div id="options-8" class="options"></div>
 
-        <div>
-            <button class="btn btn-success btn-lg" onclick="showFullAnalysis()">Показать ответ</button>
-            <a id="chatgpt-link" class="btn btn-warning btn-lg" target="_blank">
-                Открыть в ChatGPT <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
+        <button class="btn btn-success btn-lg" onclick="showFullAnalysis()">Показать ответ</button>
+        <button class="btn btn-warning btn-lg" onclick="openInChatGPT()">
+            Открыть в ChatGPT <i class="fas fa-external-link-alt"></i>
+        </button>
         <div class="full-analysis mt-4"></div>
     </div>
 
