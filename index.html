@@ -154,6 +154,9 @@
                 analysisContainer.appendChild(p);
             });
 
+            const chatGPTLink = `https://chat.openai.com/?q=Отвечай+очень+кратко.+Сначала+покажи+перевод+на+русский.+Потом+покажи+правильный+вариант.+Потом+для+каждого+слова+в+скобках+объясни+правила:+${encodeURIComponent(example.test)}`;
+            document.getElementById('chatgpt-link').href = chatGPTLink;
+
             updateCounters();
         });
     </script>
@@ -176,7 +179,12 @@
         <div id="options-7" class="options"></div>
         <div id="options-8" class="options"></div>
 
-        <button class="btn btn-success btn-lg" onclick="showFullAnalysis()">Показать полный разбор примера</button>
+        <div>
+            <button class="btn btn-success btn-lg" onclick="showFullAnalysis()">Показать ответ</button>
+            <a id="chatgpt-link" class="btn btn-warning btn-lg" target="_blank">
+                Открыть в ChatGPT <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
         <div class="full-analysis mt-4"></div>
     </div>
 
