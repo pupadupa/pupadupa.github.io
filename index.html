@@ -68,10 +68,12 @@
             document.getElementById('win-rate').textContent = winRate + '%';
         }
 
-        async function loadJSON() {
-            const response = await fetch('examples.json');
-            const data = await response.json();
-            return data;
+        async function loadJSONFiles() {
+            const examplesResponse = await fetch('examples.json');
+            const genitivResponse = await fetch('genitiv.json');
+            const examplesData = await examplesResponse.json();
+            const genitivData = await genitivResponse.json();
+            return [...examplesData.examples, ...genitivData.examples];
         }
 
         function shuffle(array) {
@@ -144,8 +146,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            const data = await loadJSON();
-            const example = data.examples[Math.floor(Math.random() * data.examples.length)];
+            const data = await loadJSONFiles();
+            const example = data[Math.floor(Math.random() * data.length)];
             currentTest = example.test;
             const textContainer = document.querySelector('#test-text');
             let textHTML = example.test;
@@ -218,7 +220,9 @@
                             <tr>
                                 <td>Номинатив</td>
                                 <td>леп дан<br>скуп аутомобил</td>
-                                <td>лепи дани<br>скупи аутомобили</td>
+                                <td>л
+
+епи дани<br>скупи аутомобили</td>
                             </tr>
                             <tr>
                                 <td>Генитив</td>
