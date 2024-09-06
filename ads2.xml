@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="3.0">
+ <Ad id="697203496">
+  <InLine>
+   <AdSystem>GDFP</AdSystem>
+   <AdTitle>External NCA1C1L1 Linear Inline</AdTitle>
+   <Description><![CDATA[External NCA1C1L1 Linear Inline ad]]></Description>
+   <Error><![CDATA[https://pagead2.googlesyndication.com/pagead/interaction/?ai=BJT2YHk7bZu6MO6ySjuwPsN6LwQHw2I_rBgAAABABIKjduyY4AVjYxrLF1wFgu76ug9AKugEKNzI4eDkwX3htbMgBBcACAuACAOoCJS8xMjQzMTkwOTYvZXh0ZXJuYWwvc2luZ2xlX2FkX3NhbXBsZXP4AvDRHoADAZADjAaYA6wCqAMB4AQB0gUGEKj2ucwCoAYjqAe4vrECqAeaBqgH89EbqAeW2BuoB6qbsQKoB4OtsQKoB-C9sQKoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHgBwHSCC0IkeGAcBABGB0yBOuLgA46Dp_QgICAgASAwICAgKAoSL39wTpYptyfpv2uiAPYCAKACgWYCwGqDQJHQtAVAfgWAYAXAQ&sigh=HgXvYECWBOQ&label=videoplayfailed[ERRORCODE]]]></Error>
+   <Impression><![CDATA[https://pagead2.googlesyndication.com/pcs/view?xai=AKAOjss3pGtpTvisyCVOYktCTj_7zulgS34XXlfTUV7ZYiG80b87MclhAWqN5UrYZIw2PhCu7IrmkjCMCff9TWqMHO9_gtxFbS7mc28IF2ytHEO7lNL4-NpjAsBDCfnXbQrP5tb09uZelN5yc6hoD_VK0C0EGCuNgwZSqzkvPIb6cirYqfDc7Dm2Ke5GYvxyTmFQhVUJIZQ8YNcwZYvJ8OtPoFo3-vVJteMMjsBQkFsQ8VTcXIY2tZJnIPHoW-HKE_b40D49sohwOhq6RgiXezQNHg5iTl2KYOGLpLJVcHFVr4aUtkbwVgHHfnPk--AGCCc7JGRVo9yiI6WvsWK8UJ1zwbt96oVCizcBFAaNNy6LCrfJ9Q&sig=Cg0ArKJSzEHXhkocNHG8EAE&uach_m=%5BUACH%5D&adurl=]]></Impression>
+   <Creatives>
+    <Creative id="57859154776" sequence="1">
+     <Linear>
+      <Duration>00:00:10</Duration>
+      <TrackingEvents>
+       <!-- Tracking events here -->
+      </TrackingEvents>
+      <VideoClicks>
+       <!-- Video clicks here -->
+      </VideoClicks>
+     </Linear>
+    </Creative>
+    <!-- Overlay Creative -->
+    <Creative id="57859154777" sequence="2">
+     <NonLinearAds>
+      <NonLinear>
+       <StaticResource creativeType="image/jpeg"><![CDATA[https://example.com/overlay.jpg]]></StaticResource>
+       <Duration>00:00:05</Duration>
+       <AdParameters><![CDATA[overlay_param]]></AdParameters>
+       <TrackingEvents>
+        <Tracking event="start"><![CDATA[https://example.com/overlay_start_tracking]]></Tracking>
+        <Tracking event="creativeView"><![CDATA[https://example.com/overlay_view_tracking]]></Tracking>
+        <Tracking event="complete"><![CDATA[https://example.com/overlay_complete_tracking]]></Tracking>
+       </TrackingEvents>
+      </NonLinear>
+     </NonLinearAds>
+    </Creative>
+   </Creatives>
+  </InLine>
+ </Ad>
+</VAST>
