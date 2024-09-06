@@ -52,7 +52,7 @@
      </Linear>
     </Creative>
     <!-- Overlay Creative -->
-    <Creative id="57859154777" sequence="2">
+    <Creative id="57859154777" sequence="1">
      <NonLinearAds>
       <NonLinear>
        <StaticResource creativeType="image/jpeg"><![CDATA[https://example.com/overlay.jpg]]></StaticResource>
