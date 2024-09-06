@@ -51,6 +51,21 @@
       </MediaFiles>
      </Linear>
     </Creative>
+    <!-- Overlay Creative -->
+    <Creative id="57859154777" sequence="2">
+     <NonLinearAds>
+      <NonLinear>
+       <StaticResource creativeType="image/jpeg"><![CDATA[https://example.com/overlay.jpg]]></StaticResource>
+       <Duration>00:00:05</Duration>
+       <AdParameters><![CDATA[overlay_param]]></AdParameters>
+       <TrackingEvents>
+        <Tracking event="start"><![CDATA[https://example.com/overlay_start_tracking]]></Tracking>
+        <Tracking event="creativeView"><![CDATA[https://example.com/overlay_view_tracking]]></Tracking>
+        <Tracking event="complete"><![CDATA[https://example.com/overlay_complete_tracking]]></Tracking>
+       </TrackingEvents>
+      </NonLinear>
+     </NonLinearAds>
+    </Creative>
     <Creative id="57857370976" sequence="1">
      <CompanionAds>
       <Companion id="57857370976" width="300" height="250">
