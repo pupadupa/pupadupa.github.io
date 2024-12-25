@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Xandr Ads</title>
+
+    <!-- Load Xandr's ast.js -->
+    <script src="https://acdn.adnxs.com/ast/ast.js" async></script>
+
+    <script>
+        // Wait for ast.js to load before calling apntag functions
+        window.onload = function () {
+            if (window.apntag && typeof window.apntag.defineTag === "function") {
+                apntag.debug = true; // Enable debugging for development
+
+                // Define the ad unit
+                apntag.defineTag({
+                    tagId: '123456', // Replace with your Xandr placement ID
+                    sizes: [[300, 250], [728, 90]], // Define ad sizes
+                    targetId: 'div-id-for-ad' // The ID of the HTML element where the ad will render
+                });
+
+                // Load the ad tags
+                apntag.loadTags();
+            } else {
+                console.error("ast.js is not loaded or apntag is undefined.");
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .ad-container {
+            width: 300px;
+            height: 250px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is an example page that integrates Xandr Monetize using ast.js.</p>
+
+    <!-- Ad Container -->
+    <div id="div-id-for-ad" class="ad-container"></div>
+
+    <footer>
+        <p>© 2024 Example Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
