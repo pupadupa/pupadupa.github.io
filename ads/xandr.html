@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website with Xandr Ads</title>
+  <script src="https://acdn.adnxs.com/prebid/prebid.js" async></script>
+  <script>
+    // Prebid.js configuration
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+    pbjs.que.push(function () {
+      pbjs.setConfig({
+        debug: true, // Turn off in production
+        bidderTimeout: 1000
+      });
+
+      pbjs.addAdUnits([
+        {
+          code: 'div-gpt-ad-123456',
+          mediaTypes: {
+            banner: {
+              sizes: [[300, 250], [728, 90]]
+            }
+          },
+          bids: [
+            {
+              bidder: 'appnexus', // Xandr's bidder alias in Prebid.js
+              params: {
+                placementId: '123456' // Replace with your Xandr placement ID
+              }
+            }
+          ]
+        }
+      ]);
+
+      pbjs.requestBids({
+        bidsBackHandler: function () {
+          pbjs.setTargetingForGPTAsync();
+        }
+      });
+    });
+  </script>
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    // Google Publisher Tag (GPT) integration
+    window.googletag = window.googletag || { cmd: [] };
+    googletag.cmd.push(function () {
+      googletag.defineSlot('/1234567/example_ad_unit', [[300, 250], [728, 90]], 'div-gpt-ad-123456').addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .ad-container {
+      margin: 20px auto;
+      width: 300px; /* Adjust based on your ad size */
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>This is an example page that integrates Xandr Monetize to display ads.</p>
+
+  <!-- Ad Container -->
+  <div id="div-gpt-ad-123456" class="ad-container">
+    <script>
+      googletag.cmd.push(function () {
+        googletag.display('div-gpt-ad-123456');
+      });
+    </script>
+  </div>
+
+  <footer>
+    <p>© 2024 Example Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
