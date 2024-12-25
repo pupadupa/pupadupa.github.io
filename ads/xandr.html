@@ -41,16 +41,24 @@
       });
     });
   </script>
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-  <script>
-    // Google Publisher Tag (GPT) integration
-    window.googletag = window.googletag || { cmd: [] };
-    googletag.cmd.push(function () {
-      googletag.defineSlot('/1234567/example_ad_unit', [[300, 250], [728, 90]], 'div-gpt-ad-123456').addService(googletag.pubads());
-      googletag.pubads().enableSingleRequest();
-      googletag.enableServices();
-    });
-  </script>
+    <script
+    async
+    src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+    crossorigin="anonymous"
+    ></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+  
+        googletag.cmd.push(() => {
+          // Define an ad slot for div with id "div-gpt-ad-123456".
+          googletag
+            .defineSlot("/6355419/Travel/Europe/France/Paris", [300, 250], "div-gpt-ad-123456")
+            .addService(googletag.pubads());
+  
+          // Enable the PubAdsService.
+          googletag.enableServices();
+        });
+      </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,8 +66,8 @@
       padding: 0;
     }
     .ad-container {
-      margin: 20px auto;
-      width: 300px; /* Adjust based on your ad size */
+      width: 300px; 
+      height: 250px
     }
   </style>
 </head>
