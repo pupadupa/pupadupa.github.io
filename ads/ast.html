@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Xandr Ads</title>
+    
+    <!-- Load Prebid.js -->
+    <script src="https://acdn.adnxs.com/prebid/prebid.js" async></script>
+    
+    <!-- Load Google Publisher Tag -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    
+    <script>
+        var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];
+        window.googletag = window.googletag || { cmd: [] };
+    
+        // Variable to track the fallback timeout
+        var fallbackTimeout;
+    
+        // Prebid.js configuration
+        pbjs.que.push(function () {
+            pbjs.setConfig({
+                debug: true,
+                bidderTimeout: 1000
+            });
+    
+            pbjs.addAdUnits([
+                {
+                    code: 'div-gpt-ad-123456',
+                    mediaTypes: {
+                        banner: {
+                            sizes: [[300, 250], [728, 90]]
+                        }
+                    },
+                    bids: [
+                        {
+                            bidder: 'appnexus',
+                            params: {
+                                placementId: '123456' // Replace with your Xandr placement ID
+                            }
+                        }
+                    ]
+                }
+            ]);
+    
+            pbjs.requestBids({
+                bidsBackHandler: function () {
+                    // Clear the fallback timeout if Prebid.js returns bids on time
+                    clearTimeout(fallbackTimeout);
+    
+                    // Set targeting for GPT and refresh ads
+                    pbjs.setTargetingForGPTAsync();
+                    googletag.cmd.push(function () {
+                        googletag.pubads().refresh();
+                    });
+                }
+            });
+        });
+    
+        // Google Publisher Tag integration
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/6355419/Travel/Europe/France/Paris', [300, 250], 'div-gpt-ad-123456')
+                .addService(googletag.pubads());
+    
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    
+        // Fallback for Prebid.js timeout
+        fallbackTimeout = setTimeout(function () {
+            googletag.cmd.push(function () {
+                googletag.pubads().refresh(); // Serve default Google ads
+            });
+        }, 1500); // Timeout set to 1.5 seconds
+    </script>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is an example page that integrates Xandr Monetize using Prebid.js and GPT.</p>
+    
+    <!-- Ad Container -->
+    <div id="div-gpt-ad-123456" class="ad-container"></div>
+    
+    <footer>
+        <p>© 2024 Example Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
