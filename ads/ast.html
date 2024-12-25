@@ -13,6 +13,8 @@
         window.onload = function () {
             if (window.apntag && typeof window.apntag.defineTag === "function") {
                 apntag.debug = true; // Enable debugging for development
+                apntag.dongle = 'ABC';
+                apntag.debug_member = '1234';
 
                 // Define the ad unit
                 apntag.defineTag({
