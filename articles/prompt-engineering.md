@@ -3,9 +3,9 @@ layout: default
 title: RAG vs Fine-tuning
 ---
 
-[Home](../index.md) > Introduction to Prompt Engineering
+[Home](../index.md) > Prompt Engineering
 
-# Introduction to Prompt Engineering
+# Prompt Engineering
 
 ## Core Concepts
 - Role and context setting
