@@ -16,9 +16,3 @@ A collection of observations, principles, and mental models — shaped by produc
 
 ---
 
-<div class="footer">
-© 2025 Konstantin Kabanov. All rights reserved. | <a href="https://www.linkedin.com/in/kkabanov/">LinkedIn</a>
-</div>
-
-</body>
-</html>
