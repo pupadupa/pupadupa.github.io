@@ -1,3 +1,8 @@
+---
+layout: default
+title: RAG vs Fine-tuning
+---
+
 [Home](../index.md) > RAG vs Fine-tuning
 
 # RAG vs Fine-tuning
@@ -13,5 +18,3 @@
 - Training considerations
 
 ---
-
-© 2025 Konstantin Kabanov. All rights reserved. | [LinkedIn](https://www.linkedin.com/in/kkabanov/) | [Home](../index.md)

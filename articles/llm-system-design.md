@@ -1,3 +1,8 @@
+---
+layout: default
+title: RAG vs Fine-tuning
+---
+
 [Home](../index.md) > LLM System Design
 
 # LLM System Design
@@ -15,5 +20,3 @@
 4. Error handling
 
 ---
-
-© 2025 Konstantin Kabanov. All rights reserved. | [LinkedIn](https://www.linkedin.com/in/kkabanov/) | [Home](../index.md)
