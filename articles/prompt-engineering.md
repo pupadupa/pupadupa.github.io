@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../styles/dark-theme.css">
+</head>
+<body>
+
 [Home](../index.md) > Introduction to Prompt Engineering
 
 # Introduction to Prompt Engineering
@@ -16,4 +25,9 @@
 
 ---
 
-© 2025 Konstantin Kabanov. All rights reserved. | [LinkedIn](https://www.linkedin.com/in/kkabanov/) | [Home](../index.md)
+<div class="footer">
+© 2025 Konstantin Kabanov. All rights reserved. | <a href="https://www.linkedin.com/in/kkabanov/">LinkedIn</a>
+</div>
+
+</body>
+</html>
