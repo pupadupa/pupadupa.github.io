@@ -13,6 +13,4 @@ A collection of observations, principles, and mental models — shaped by produc
 - [LLM System Design](articles/llm-system-design.md) - Architectural patterns and considerations
 - [RAG vs Fine-tuning](articles/rag-vs-fine-tuning.md) - When to use each approach
 - [Evaluating LLM Performance](articles/llm-evaluation.md) - Metrics and testing strategies
-
 ---
-
