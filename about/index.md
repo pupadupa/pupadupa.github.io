@@ -3,8 +3,6 @@ layout: default
 title: About Me
 ---
 
-## About Me
-
 I'm Konstantin — a product guy who’s spent the last decade building and scaling things at Microsoft and Yandex.
 
 This site is a collection of notes, ideas, and frameworks — mostly around product thinking, systems, ML, and AI. It’s not a playbook. Just things worth writing down.
