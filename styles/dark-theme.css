@@ -9,7 +9,8 @@ body {
 }
 
 h1, h2 {
-    color: #569cd6;
+    /* color: #569cd6; */
+    color: #fff
 }
 
 a {
@@ -31,3 +32,28 @@ hr {
     color: #888;
     font-size: 0.9rem;
 }
+
+.site-header {
+    margin-bottom: 2rem;
+  }
+  
+  .site-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid #444; */
+  }
+  
+  .site-title {
+    font-size: 1.8rem;
+    margin: 0;
+    /* color: #569cd6; */
+  }
+  

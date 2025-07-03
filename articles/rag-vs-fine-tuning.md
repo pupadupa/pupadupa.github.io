@@ -5,7 +5,11 @@ title: RAG vs Fine-tuning
 
 [Home](../index.md) > RAG vs Fine-tuning
 
-# RAG vs Fine-tuning
+<!-- # RAG vs Fine-tuning -->
+
+<div class="article-meta">
+Published: July 3, 2025 | Last updated: July 3, 2025
+</div>
 
 ## Retrieval-Augmented Generation (RAG)
 - When to use: Dynamic content, cost-sensitive applications

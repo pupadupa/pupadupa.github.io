@@ -7,6 +7,10 @@ title: RAG vs Fine-tuning
 
 # Prompt Engineering
 
+<div class="article-meta">
+Published: July 3, 2025 | Last updated: July 3, 2025
+</div>
+
 ## Core Concepts
 - Role and context setting
 - Clear and specific instructions

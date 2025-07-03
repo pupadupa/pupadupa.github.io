@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="/styles/dark-theme.css">
 </head>
 <body>
+<!-- 
+  <header class="site-header">
+    <div class="avatar-wrapper">
+      <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
+    </div>
+    <h1 class="site-title">Poor Konstantin's Almanac</h1>
+  </header> -->
+  {% if page.url == "/" %}
+  <header class="site-header">
+    <div class="site-header-content">
+      <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
+      <h1 class="site-title">Poor Konstantin's Almanac</h1>
+    </div>
+  </header>
+  {% endif %}
+  {% unless page.url == "/" %}
+    <h2 class="page-title">{{ page.title }}</h2>
+  {% endunless %}
+  
+  
   {{ content }}
 
   {% include footer.html %}

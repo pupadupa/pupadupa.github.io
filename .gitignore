@@ -1,0 +1,39 @@
+# Jekyll output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby/Bundler
+.bundle/
+vendor/
+*.gem
+.ruby-version
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js
+node_modules/
+
+# Environment files
+.env
+
+# OS/Editor trash
+**/.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.bak
+*.pid
+
+# VS Code
+.vscode/
+
+# Custom folders
+ssl/
+tmp/
