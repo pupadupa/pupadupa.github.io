@@ -89,5 +89,3 @@ Clarifies roles, ownership, and how the team works together.
 ---
 
 This isn’t a checklist — it’s scaffolding. Adapt it to your team, your stage, and your context.
-
----

@@ -1,17 +1,27 @@
+/* ===== Base Layout ===== */
 body {
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    /* max-width: 800px; */
-    max-width: 80ch; /* ideal line length */
-    margin: 0 auto;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.page-content {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 600px) {
+  .page-content {
     padding: 2rem;
+  }
 }
 
 h1, h2 {
-    /* color: #569cd6; */
-    color: #fff
+  color: #fff;
 }
 
 a {
@@ -25,39 +35,91 @@ a:hover {
   color: #66ffe0;
 }
 
-
 hr {
-    border: 0;
-    border-top: 1px solid #333;
-    margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 2rem 0;
 }
 
 .footer {
-    color: #888;
-    font-size: 0.9rem;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  color: #888;
+  font-size: 0.9rem;
 }
 
+/* ===== Header ===== */
 .site-header {
-    margin-bottom: 2rem;
-  }
-  
+  width: 100%;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.site-header-content {
+  max-width: 80ch;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
   .site-header-content {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 1rem;
   }
-  
-  .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    /* border: 2px solid #444; */
+
+  .right-section {
+    margin-left: auto;
   }
-  
-  .site-title {
-    font-size: 1.8rem;
-    margin: 0;
-    /* color: #569cd6; */
-  }
-  
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold; /* ensure consistent weight */
+}
+
+.site-title:hover {
+  text-decoration: none; /* prevent underline on hover */
+}
+
+
+
+/* ===== Navigation ===== */
+.right-section a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #4ec9b0;
+}
+
+.right-section a:hover {
+  text-decoration: underline;
+  color: #66ffe0;
+}
+
+/* ===== Page Title (h1 on article pages) ===== */
+.page-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}

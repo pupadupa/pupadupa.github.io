@@ -18,5 +18,3 @@ Published: July 3, 2025 | Last updated: July 3, 2025
 - When to use: Specialized tasks, consistent behavior needed
 - Resource requirements
 - Training considerations
-
----

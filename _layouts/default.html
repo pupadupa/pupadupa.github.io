@@ -12,28 +12,33 @@
   <meta property="og:image" content="/assets/images/konstantin_userpic.jpeg">
 </head>
 <body>
-<!-- 
-  <header class="site-header">
-    <div class="avatar-wrapper">
-      <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
-    </div>
-    <h1 class="site-title">Poor Konstantin's Almanac</h1>
-  </header> -->
-  {% if page.url == "/" %}
+
   <header class="site-header">
     <div class="site-header-content">
-      <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
-      <h1 class="site-title">Poor Konstantin's Almanac</h1>
+      <div class="left-section">
+        <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
+        {% if page.url == "/" %}
+          <h1 class="site-title">Poor Konstantin's Almanac</h1>
+        {% else %}
+          <a href="/" class="site-title">Poor Konstantin's Almanac</a>
+        {% endif %}
+      </div>
+      <nav class="right-section">
+        <a href="/about">About me</a>
+        <a href="/articles">Articles</a>
+      </nav>
     </div>
   </header>
-  {% endif %}
-  {% unless page.url == "/" %}
-    <h2 class="page-title">{{ page.title }}</h2>
-  {% endunless %}
-  
-  
-  {{ content }}
 
-  {% include footer.html %}
+  <div class="page-content">
+    {% unless page.url == "/" %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% endunless %}
+
+    {{ content }}
+    
+    {% include footer.html %}
+  </div>
+  
 </body>
 </html>
