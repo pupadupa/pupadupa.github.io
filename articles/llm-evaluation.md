@@ -5,8 +5,6 @@ title: Evaluating LLM Performance
 
 [Home](../index.md) > Evaluating LLM Performance
 
-<!-- # Evaluating LLM Performance -->
-
 <div class="article-meta">
 Published: July 3, 2025 | Last updated: July 3, 2025
 </div>

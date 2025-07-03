@@ -1,11 +1,9 @@
 ---
 layout: default
-title: RAG vs Fine-tuning
+title: Prompt Engineering
 ---
 
 [Home](../index.md) > Prompt Engineering
-
-# Prompt Engineering
 
 <div class="article-meta">
 Published: July 3, 2025 | Last updated: July 3, 2025

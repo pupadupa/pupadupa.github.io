@@ -5,8 +5,6 @@ title: LLM System Design
 
 [Home](../index.md) > LLM System Design
 
-# LLM System Design
-
 <div class="article-meta">
 Published: July 3, 2025 | Last updated: July 3, 2025
 </div>
