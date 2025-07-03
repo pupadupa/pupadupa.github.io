@@ -3,7 +3,8 @@ body {
     color: #d4d4d4;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    max-width: 800px;
+    /* max-width: 800px; */
+    max-width: 80ch; /* ideal line length */
     margin: 0 auto;
     padding: 2rem;
 }
@@ -14,13 +15,16 @@ h1, h2 {
 }
 
 a {
-    color: #4ec9b0;
-    text-decoration: none;
+  color: #4ec9b0;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+  color: #66ffe0;
 }
+
 
 hr {
     border: 0;

@@ -5,6 +5,11 @@
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/styles/dark-theme.css">
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="author" content="Konstantin Kabanov">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/assets/images/konstantin_userpic.jpeg">
 </head>
 <body>
 <!-- 
