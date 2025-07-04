@@ -17,6 +17,7 @@ Published: July 3, 2025 | Last updated: July 4, 2025
     - [Chain-of-Thought (CoT)](#chain-of-thought-cot)
     - [Role Prompting](#role-prompting)
     - [Self-Consistency](#self-consistency)
+    - [Structured Output](#structured-output)
 - [Tips That Actually Help](#tips-that-actually-help)
 - [Resources That Don’t Waste Your Time](#resources-that-dont-waste-your-time)
 
@@ -101,6 +102,29 @@ Useful for open-ended reasoning and reducing flukes.
 
 ---
 
+### Structured Output
+
+Force the model to respond in a predictable format — especially useful when parsing responses programmatically.
+
+> Summarize the following user feedback and return JSON with keys: "sentiment", "topics", and "summary".
+>
+> Feedback: "The search is fast, but the results aren't always relevant."
+>
+> Return format:
+>
+> ```
+> {
+>   "sentiment": "mixed",
+>   "topics": ["search speed", "result relevance"],
+>   "summary": "Fast search, but relevance could be better."
+> }
+> ```
+
+
+Use when you want the output clean, extractable, and machine-readable. Works well in toolchains, API calls, and eval loops.
+
+---
+
 ## Tips That Actually Help
 
 - **Tell it what format you want**  
@@ -127,5 +151,4 @@ Useful for open-ended reasoning and reducing flukes.
 - [Learn Prompting](https://learnprompting.org/) — Good if you want to teach others  
 - [Anthropic: Constitutional AI](https://www.anthropic.com/constitutional-ai) — How to nudge models toward safer outputs  
 - [Microsoft Prompt Engineering](https://microsoft.github.io/prompt-engineering/) — Patterns used at scale
-
 
