@@ -162,3 +162,45 @@ a.site-title:hover {
   color: #777;
   margin-bottom: 1rem;
 }
+
+/* ===== Code Blocks ===== */
+pre {
+  background-color: #2d2d2d;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: #2d2d2d;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  color: #e06c75;
+}
+
+/* Code block title or language tag */
+pre::before {
+  content: attr(data-lang);
+  display: block;
+  background-color: #363636;
+  padding: 0.3rem 1rem;
+  margin: -1rem -1rem 1rem -1rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  font-size: 0.8rem;
+  color: #888;
+  border-bottom: 1px solid #404040;
+}
