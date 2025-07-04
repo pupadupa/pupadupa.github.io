@@ -9,19 +9,16 @@ title: Prompt Engineering
 Published: July 3, 2025 | Last updated: July 4, 2025
 </div>
 
-# Prompt Engineering
-
 **Contents**  
-- [Prompt Engineering](#prompt-engineering)
-    - [Why It Matters](#why-it-matters)
-    - [Prompt Patterns That Work](#prompt-patterns-that-work)
-        - [Zero-shot](#zero-shot)
-        - [Few-shot](#few-shot)
-        - [Chain-of-Thought (CoT)](#chain-of-thought-cot)
-        - [Role Prompting](#role-prompting)
-        - [Self-Consistency](#self-consistency)
-    - [Tips That Actually Help](#tips-that-actually-help)
-    - [Resources That Don’t Waste Your Time](#resources-that-dont-waste-your-time)
+- [Why It Matters](#why-it-matters)
+- [Prompt Patterns That Work](#prompt-patterns-that-work)
+    - [Zero-shot](#zero-shot)
+    - [Few-shot](#few-shot)
+    - [Chain-of-Thought (CoT)](#chain-of-thought-cot)
+    - [Role Prompting](#role-prompting)
+    - [Self-Consistency](#self-consistency)
+- [Tips That Actually Help](#tips-that-actually-help)
+- [Resources That Don’t Waste Your Time](#resources-that-dont-waste-your-time)
 
 ---
 
