@@ -19,7 +19,7 @@ Published: July 3, 2025 | Last updated: July 4, 2025
     - [Self-Consistency](#self-consistency)
     - [Structured Output](#structured-output)
 - [Tips That Actually Help](#tips-that-actually-help)
-- [Resources That Don’t Waste Your Time](#resources-that-dont-waste-your-time)
+- [Useful Resources](#useful-resources)
 
 ---
 
@@ -144,7 +144,7 @@ Use when you want the output clean, extractable, and machine-readable. Works wel
 
 ---
 
-## Resources That Don’t Waste Your Time
+## Useful Resources
 
 - [promptingguide.ai](https://www.promptingguide.ai/) — Solid overview with examples  
 - [OpenAI Cookbook](https://github.com/openai/openai-cookbook) — Real-world prompts, API-ready  
