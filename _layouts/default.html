@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MQPG2N29');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/styles/dark-theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
   <meta name="author" content="Konstantin Kabanov">
   <meta property="og:title" content="{{ page.title }}">
@@ -12,18 +20,26 @@
   <meta property="og:image" content="/assets/images/konstantin_userpic.jpeg">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQPG2N29"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header class="site-header">
     <div class="site-header-content">
       <div class="left-section">
-        <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
+        <a href="/">
+          <img src="/assets/images/konstantin_userpic.jpeg" alt="Konstantin Kabanov" class="avatar" />
+        </a>
         {% if page.url == "/" %}
           <h1 class="site-title">Poor Konstantin's Almanac</h1>
         {% else %}
           <a href="/" class="site-title">Poor Konstantin's Almanac</a>
         {% endif %}
       </div>
+      
       <nav class="right-section">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
         <a href="/about">About me</a>
         <a href="/articles">Articles</a>
       </nav>

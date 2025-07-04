@@ -54,7 +54,7 @@ hr {
   width: 100%;
   background-color: #1e1e1e;
   border-bottom: 1px solid #333;
-  padding: 0.75rem 1rem; /* Reduced padding on mobile */
+  padding: 0.75rem 1rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -64,16 +64,22 @@ hr {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items on mobile */
-  gap: 0.75rem; /* Reduced gap on mobile */
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .left-section {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Reduced gap */
-  flex-wrap: wrap; /* Allow wrapping on very small screens */
-  justify-content: center; /* Center on mobile */
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* === NEW: Fix image alignment when wrapped in a link === */
+.left-section a:first-child {
+  display: flex;
+  align-items: center;
 }
 
 .avatar {
@@ -81,16 +87,16 @@ hr {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  display: block; /* prevent baseline shift */
 }
 
 .site-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  color: #fff; /* Match h1,h2 color */
+  color: #fff;
 }
 
-/* Add new styles for site title when it's a link */
 a.site-title {
   color: #fff;
 }
@@ -102,36 +108,36 @@ a.site-title:hover {
 
 .right-section {
   display: flex;
-  gap: 1rem; /* Use gap instead of margin for even spacing */
-  justify-content: center; /* Center on mobile */
-  width: 100%; /* Full width on mobile */
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .right-section a {
-  margin-left: 0; /* Remove margin since we're using gap */
+  margin-left: 0;
   font-weight: 500;
   color: #4ec9b0;
 }
 
 @media (min-width: 600px) {
   .site-header {
-    padding: 1rem 2rem; /* Restore larger padding on desktop */
+    padding: 1rem 2rem;
   }
 
   .site-header-content {
     flex-direction: row;
     align-items: center;
-    gap: 1rem; /* Restore larger gap on desktop */
+    gap: 1rem;
   }
 
   .right-section {
-    width: auto; /* Auto width on desktop */
-    margin-left: auto; /* Push to right on desktop */
-    justify-content: flex-end; /* Align right on desktop */
+    width: auto;
+    margin-left: auto;
+    justify-content: flex-end;
   }
 
   .left-section {
-    justify-content: flex-start; /* Align left on desktop */
+    justify-content: flex-start;
   }
 
   .avatar {
@@ -144,17 +150,15 @@ a.site-title:hover {
   }
 }
 
-/* ===== Navigation ===== */
-
-/* ===== Page Title (h1 on article pages) ===== */
+/* ===== Page Title ===== */
 .page-title {
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
+/* ===== Article Meta ===== */
 .article-meta {
   font-size: 0.85rem;
   color: #777;
   margin-bottom: 1rem;
 }
-
