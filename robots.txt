@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /serbiantest/
+
+Sitemap: https://kkabanov.com/sitemap.xml
