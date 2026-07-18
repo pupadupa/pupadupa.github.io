@@ -74,8 +74,6 @@ hr {
   gap: 0.75rem;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  min-width: 0;
 }
 
 /* === NEW: Fix image alignment when wrapped in a link === */
@@ -97,7 +95,6 @@ hr {
   font-weight: 600;
   margin: 0;
   color: #fff;
-  min-width: 0;
 }
 
 a.site-title {
@@ -111,11 +108,9 @@ a.site-title:hover {
 
 .right-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: 1rem;
   justify-content: center;
   width: 100%;
-  min-width: 0;
 }
 
 .right-section a {
@@ -224,97 +219,4 @@ blockquote {
 
 blockquote > :last-child {
   margin-bottom: 0;
-}
-
-/* ===== Kids section ===== */
-.kids-resource {
-  padding: 2rem 0;
-  border-top: 1px solid #333;
-}
-
-.kids-resource:first-child {
-  padding-top: 1rem;
-  border-top: none;
-}
-
-.kids-resource-headline {
-  margin: 0 0 0.25rem;
-}
-
-.kids-resource-headline a {
-  color: #fff;
-}
-
-.kids-resource-headline a:hover {
-  color: #4ec9b0;
-}
-
-.kids-resource-tagline {
-  margin: 0 0 0.75rem;
-  color: #4ec9b0;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.kids-resource-desc {
-  margin: 0 0 1.25rem;
-  color: #ccc;
-}
-
-.kids-project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.kids-project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  background-color: #2a2a2a;
-  border: 1px solid #404040;
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
-  color: #d4d4d4;
-  text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-}
-
-.kids-project-card:hover {
-  border-color: #4ec9b0;
-  background-color: #303030;
-  transform: translateY(-2px);
-  text-decoration: none;
-  color: #d4d4d4;
-}
-
-.kids-project-title {
-  font-weight: 600;
-  color: #fff;
-}
-
-.kids-project-desc {
-  font-size: 0.88rem;
-  color: #aaa;
-  line-height: 1.5;
-}
-
-.kids-other-card {
-  grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(78, 201, 176, 0.1);
-  border: 1px dashed #4ec9b0;
-  padding: 0.9rem 1.1rem;
-  text-align: center;
-}
-
-.kids-other-card:hover {
-  background-color: rgba(78, 201, 176, 0.2);
-  border-style: solid;
-}
-
-.kids-other-card .kids-project-title {
-  color: #4ec9b0;
 }
